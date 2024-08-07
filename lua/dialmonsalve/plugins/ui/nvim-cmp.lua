@@ -87,24 +87,29 @@ return {
 		})
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
+		-- Set configuration for specific filetype.
 		cmp.setup.filetype("gitcommit", {
 			sources = cmp.config.sources({
-				{ name = "git" },
-			}, { name = "buffer" }),
+				{ name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+			}, {
+				{ name = "buffer" },
+			}),
 		})
 
+		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = {
 				{ name = "buffer" },
 			},
 		})
-
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
 				{ name = "path" },
-			}, { name = "cmdline" }),
+			}, {
+				{ name = "cmdline" },
+			}),
 		})
 	end,
 }

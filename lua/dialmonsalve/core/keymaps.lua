@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
---LazyVim = require("LazyVim/LazyVim")
---local LazyVim = require("LazyVim/starter")
+local discipline = require("dialmonsalve.core.discipline")
+discipline.cowboy()
 
 local map = vim.keymap.set --for conciseness
 
@@ -26,9 +26,9 @@ map("n", "<leader>tf", "<cmd>tabnew<CR>", { desc = "Open current buffer in new t
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "n", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+map({ "n", "x" }, "p", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
