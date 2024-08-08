@@ -15,7 +15,7 @@ function M.cowboy()
 		local count = 0
 		local timer = assert(vim.loop.new_timer())
 		local map = key
-
+		--
 		vim.keymap.set({ "n", "i", "v" }, key, function()
 			if vim.v.count > 0 then
 				count = 0
